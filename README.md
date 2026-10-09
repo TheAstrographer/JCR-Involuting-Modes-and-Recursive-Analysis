@@ -19,3 +19,5 @@ https://github.com/TheAstrographer/Cosmological-Theses.git
 https://github.com/TheAstrographer/JOSHUA-CHRISTOPHER-RYAN-S-ARCAN-FAMILY.git
 
 https://github.com/TheAstrographer/JCR-Cyclic-Multipole-Subsets.git
+
+https://github.com/TheAstrographer/JCRIN-Dual-Vortex-Gate.git
