@@ -1,0 +1,109 @@
+Numerical Values Table  
+Protected Recursion of \(\operatorname{loop}\{\infty\mid\infty\}\)
+
+| Quantity | Symbol | Exact / Display Value | Unit / Note |
+|----------|--------|-----------------------|-------------|
+| Speed of light squared | \(c^2\) | \(8.98755179 \times 10^{16}\) | \(\mathrm{m}^2/\mathrm{s}^2\) |
+| Angular domain half-width | \(\theta\) | \(6.5\pi \approx 20.4203522483\) | rad |
+| Full angular span | \(2\theta\) | \(13\pi \approx 40.8407044967\) | rad |
+| Dimensionless real coordinate | \(Y = y/c^2\) | \([-1.0,\,+1.0]\) | normalized |
+| Terminal real coordinate (physical) | \(y_5\) | \(c^2\) | \(\mathrm{m}^2/\mathrm{s}^2\) |
+| Terminal real coordinate (normalized) | \(Y_5\) | \(+1.00\) | dimensionless |
+
+Stage-wise Real Advance
+
+| n | Stage | \(\Delta Y\) | Cumulative \(Y\) | Physical \(y\) |
+|---|-------|--------------|------------------|----------------|
+| 0 | Initial closed curve | — | \(0.00\) | \(0\) |
+| 1 | Gravitational force acts | \(+0.25\) | \(0.25\) | \(0.25\,c^2\) |
+| 2 | Curve expands | \(+0.25\) | \(0.50\) | \(0.50\,c^2\) |
+| 3 | Involuting mode | \(0\) | \(0.50\) | \(0.50\,c^2\) |
+| 4 | Return to curve | \(+0.25\) | \(0.75\) | \(0.75\,c^2\) |
+| 5 | Terminal \(\operatorname{loop}\{\infty\mid\infty\}\) | \(+0.25\) | \(1.00\) | \(1.00\,c^2\) |
+
+Derived Identities
+
+| Identity | Value |
+|----------|-------|
+| Net real advance (normalized) | \(Y_5 - Y_0 = 1.00\) |
+| Net real advance (physical) | \(y_5 - y_0 = c^2\) |
+| Telescopic sum | \(\sum\Delta Y_i = 1.00\) |
+| Continuum integral (scaled) | \(\displaystyle\int_{\operatorname{loop}\{\infty\mid\infty\}^{-}}^{\operatorname{loop}\{\infty\mid\infty\}^{+}} = 1.00\) |
+
+Numerical Values Table  
+Corresponding to Confronting-The-Data
+
+Core Dual-Gate / Torque Parameters
+
+| Quantity | Symbol / Name | Value | Unit / Note |
+|----------|---------------|-------|-------------|
+| Lattice torque | torque | 3.17 | km s⁻¹ Mpc⁻¹ |
+| Base Hubble (reference) | \(H_0^{\rm base}\) | 70.0 | km s⁻¹ Mpc⁻¹ |
+| Local Hubble (derived) | \(H_0^{\rm local}\) | \(H_0 + 3.17\) | km s⁻¹ Mpc⁻¹ at \(z=0\) |
+| Auxiliary timescale | tau | 5.8 | (model unit) |
+
+Standard Cosmological Reference Values (from configuration)
+
+| Parameter | Reference Value | Prior Range |
+|-----------|-----------------|-------------|
+| \(\Omega_b h^2\) | 0.0224 | [0.005, 0.1] |
+| \(\Omega_c h^2\) | 0.120 | [0.001, 0.99] |
+| \(H_0\) (base) | 70.0 | [65.0, 75.0] |
+| \(\ln(10^{10}A_s)\) | 3.05 | [1.61, 3.91] |
+| \(n_s\) | 0.965 | [0.8, 1.2] |
+| \(\tau\) | 0.054 | [0.01, 0.2] |
+
+Nuisance Parameters (Explicit Marginalization)
+
+| Parameter | Reference | Prior Range |
+|-----------|-----------|-------------|
+| \(A_{\rm IA}\) | 0.5 | [−5.0, 5.0] or [−4.0, 4.0] |
+| \(\eta_{\rm IA}\) | 0.0 | [−5.0, 5.0] |
+| \(\log_{10}(T_{\rm AGN}/{\rm K})\) | 7.8 | [7.0, 9.0] |
+
+DESI DR2 BAO Redshift Bins (Anisotropic Diagnostics)
+
+| Redshift Bin \(z\) | Primary Tracer | Geometry Metric | Dynamics Metric |
+|--------------------|----------------|-----------------|-----------------|
+| 0.510 | BGS / LRG | \(D_M(0.51)/r_d\) | \(D_H(0.51)/r_d\) |
+| 0.706 | LRG | \(D_M(0.71)/r_d\) | \(D_H(0.71)/r_d\) |
+| 0.930 | LRG / ELG | \(D_M(0.93)/r_d\) | \(D_H(0.93)/r_d\) |
+| 1.317 | ELG / QSO | \(D_M(1.32)/r_d\) | \(D_H(1.32)/r_d\) |
+| 2.330 | Lyman-α Forest | \(D_M(2.33)/r_d\) | \(D_H(2.33)/r_d\) |
+
+Derived Trackers
+
+| Quantity | Definition |
+|----------|------------|
+| \(\Omega_m\) | Matter density parameter |
+| \(\sigma_8\) | Amplitude of matter fluctuations |
+| \(S_8\) | \(\sigma_8 \sqrt{\Omega_m / 0.3}\) |
+
+These are the central numerical values that define the five-pillar Master Joint Likelihood Matrix and the Dual-Gate torque implementation inside Confronting-The-Data. The posterior \(\Delta\chi^2\) relative to ΛCDM is the quantitative output once the full matrix is run.
+
+Side-by-Side Numerical Values Table
+
+Left: Standard Cosmological Reference Values (Confronting-The-Data)  
+Right: Protected Recursion of \(\operatorname{loop}\{\infty\mid\infty\}\)
+
+| Cosmological Quantity              | Value                  | Recursion Quantity                          | Value                          |
+|------------------------------------|------------------------|---------------------------------------------|--------------------------------|
+| Lattice torque                     | 3.17 km s⁻¹ Mpc⁻¹     | Net real advance (normalized)               | \(Y_5 - Y_0 = 1.00\)          |
+| Base Hubble \(H_0^{\rm base}\)     | 70.0 km s⁻¹ Mpc⁻¹     | Terminal dimensionless coordinate           | \(Y_5 = +1.00\)               |
+| Local Hubble \(H_0^{\rm local}\)   | \(H_0 + 3.17\)        | Terminal physical coordinate                | \(y_5 = c^2\)                 |
+| \(c^2\) (implicit scale)           | —                      | Speed of light squared                      | \(8.98755179 \times 10^{16}\) m²/s² |
+| \(\Omega_b h^2\) (ref)             | 0.0224                 | Stage 1 real advance \(\Delta Y_1\)         | +0.25                          |
+| \(\Omega_c h^2\) (ref)             | 0.120                  | Stage 2 real advance \(\Delta Y_2\)         | +0.25                          |
+| \(H_0\) prior range                | [65.0, 75.0]           | Stage 3 real advance \(\Delta Y_3\)         | 0 (involuting fold)            |
+| \(\ln(10^{10}A_s)\) (ref)          | 3.05                   | Stage 4 real advance \(\Delta Y_4\)         | +0.25                          |
+| \(n_s\) (ref)                      | 0.965                  | Stage 5 real advance \(\Delta Y_5\)         | +0.25                          |
+| \(\tau\) (ref)                     | 0.054                  | Angular half-width \(\theta\)               | \(6.5\pi \approx 20.420\)     |
+| \(A_{\rm IA}\) (ref)               | 0.5                    | Full angular span                           | \(13\pi \approx 40.841\)      |
+| \(\eta_{\rm IA}\) (ref)            | 0.0                    | Dimensionless domain                        | \(Y \in [-1.0,\,+1.0]\)       |
+| \(\log_{10}(T_{\rm AGN}/{\rm K})\) | 7.8                    | Telescopic sum \(\sum\Delta Y_i\)           | 1.00                           |
+| \(S_8\) definition                 | \(\sigma_8\sqrt{\Omega_m/0.3}\) | Continuum integral (scaled)            | \(\displaystyle\int = 1.00\)  |
+
+Summary alignment
+
+The Dual-Gate torque (3.17) raises the local expansion rate in exact analogy to the permanent real advance that carries the curve from \(Y=0\) to \(Y=1.0\).
+The five cosmological pillars confront the same five-stage recursion that produces \(\operatorname{loop}\{\infty\mid\infty\}\) at the upper boundary of the normalized domain.
