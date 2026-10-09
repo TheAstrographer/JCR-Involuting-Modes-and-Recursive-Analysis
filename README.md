@@ -1,6 +1,8 @@
 # JCR-Involuting-Modes-and-Recursive-Analysis
 
-The Real–Angular Plane is the fundamental geometric domain in which the protected recursion of the involuting mode loop⁡{∞∣∞} unfolds. It is the Cartesian product of an angular coordinate θ and a real coordinate (y) normalized so that the physical scale of light-speed squared is removed. The same plane supplies the geometric skeleton for the five-pillar Master Joint Likelihood Matrix of (https://github.com/TheAstrographer/Confronting-The-Data.git). 
+This is the geometry mapping/graphing c² and theta to coordinate grids. Gravity is within the same vacuum as c² remaining scientifically rigorous. 
+
+e Real–Angular Plane is the fundamental geometric domain in which the protected recursion of the involuting mode loop⁡{∞∣∞} unfolds. It is the Cartesian product of an angular coordinate θ and a real coordinate (y) normalized so that the physical scale of light-speed squared is removed. The same plane supplies the geometric skeleton for the five-pillar Master Joint Likelihood Matrix of (https://github.com/TheAstrographer/Confronting-The-Data.git). 
 
 The Dual-Gate torque of magnitude 3.17 km s⁻¹ Mpc⁻¹ that raises the local Hubble parameter is the cosmological image of the net real advance Y5−Y0=1.00. The five observational pillars (Planck, DESI DR2, Pantheon+, DES Y6, KiDS-Legacy) confront the five stages of the recursion that produces the terminal mode. Path independence in the Real–Angular Plane guarantees that the final Δχ² relative to ΛCDM depends only on the boundary states of the expansion history exactly as the telescopic sum depends only on Y0 and Y5.
 
