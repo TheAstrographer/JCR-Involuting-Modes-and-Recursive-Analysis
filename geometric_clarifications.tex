@@ -240,3 +240,75 @@ There is no hardcoding.
 There is only the force of gravity acting on light accelerating.  
 That action is displayed with and through the coordinate gridding of the Real–Angular Plane.  
 The four-lobed involuting mode is the visible geometric consequence of that single physical process.
+
+cite (https://github.com/TheAstrographer/Confronting-The-Data.git) and then jcrin_dual_gate_joint.yaml fromhttps://github.com/TheAstrographer/Cosmological-Theses.git
+
+Citation 1 
+Repository: https://github.com/TheAstrographer/Confronting-The-Data.git
+
+This is the companion repository that supplies the standard-of-evidence / statistical arena. 
+
+Its core claim (stated in the README and formalized in joint_likelihood_thesis.tex) is:
+
+This five-pillar matrix with explicit IA + baryonic marginalization is precisely the arena in which any claim can be cross-verified and referenced. Run it, and the posterior (\(\Delta\chi^2\) and the relative to \(\Lambda\)CDM) will give the quantitative answer.
+
+The five pillars are:
+
+\[
+\ln\mathcal{L}{\rm Total} = \ln\mathcal{L}{\rm Planck} + \ln\mathcal{L}{\rm DESI\,DR2} + \ln\mathcal{L}{\rm Pantheon+} + \ln\mathcal{L}{\rm DES\,Y6\,3\times2pt} + \ln\mathcal{L}{\rm KiDS\text{-}Legacy}
+\]
+
+with Intrinsic Alignment amplitudes (\(A_{\rm IA}\), \(\eta_{\rm IA}\)) and baryonic feedback strength (\(\log_{10}T_{\rm AGN}\)) promoted to free nuisance parameters. 
+
+It is presented as the minimal, production-grade statistical test that any late-time modification (including the Dual-Gate torque) must pass. The geometric five-stage recursion of the Involuting-Modes repository is mapped onto these five observational pillars.
+
+Citation 2 
+File: jcrin_dual_gate_joint.yaml 
+Repository: https://github.com/TheAstrographer/Cosmological-Theses.git 
+Direct link: https://github.com/TheAstrographer/Cosmological-Theses/blob/main/jcrin_dual_gate_joint.yaml
+
+This is the self-contained Cobaya MCMC configuration that implements the Dual-Gate / lattice-torque model against the five-pillar likelihood.
+
+Key excerpts:
+
+theory:
+  adapters.jcrin_cobaya_adapter.JCRINAdapter:
+    torque: 3.17
+    tau: 5.8
+
+likelihood:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lowl.TT:
+  planck_2018_lowl.EE:
+  planck_2018_lensing.baseline:
+  desi_2024_dr1_bao.main:
+  pantheon_plus.binned:
+  des_y6.3x2pt:
+  kids_legacy.cosmic_shear:
+
+params:
+  H0:
+    prior: {min: 65.0, max: 75.0}
+    ref: 70.0
+    latex: H_0^\mathrm{base}
+
+  H0_local:
+    derived: "lambda H0: H0 + 3.17"   # base + full torque at z=0
+    latex: H_0^\mathrm{local}
+
+  A_IA:
+    prior: {min: -5.0, max: 5.0}
+  alpha_IA:
+    prior: {min: -5.0, max: 5.0}
+  logT_AGN:
+    prior: {min: 7.0, max: 9.0}
+
+The configuration treats the base Hubble parameter as \(\approx 70\) km s⁻¹ Mpc⁻¹ and adds the fixed Dual-Gate torque of \(+3.17\) km s⁻¹ Mpc⁻¹ to produce the local value \(H_0^{\rm local}\approx 73.17\). Early-universe parameters remain standard \(\Lambda\)CDM; the late-time torque is injected via the thin adapter, while IA and baryonic parameters are freely marginalized.
+
+Relationship between the two citations 
+According to the dual-repository statement in Cosmological-Theses:
+
+Cosmological-Theses** (containing jcrin_dual_gate_joint.yaml) supplies the theoretical model (lattice + dual-gate architecture + geometric torque). 
+Confronting-The-Data** supplies the required statistical arena (the five-pillar Master Joint Likelihood Matrix). 
+
+Together they form the cosmological proofs used to further ground Involuting-Modes repository micro-macro physicality. 
