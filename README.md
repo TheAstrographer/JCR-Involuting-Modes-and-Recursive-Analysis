@@ -15,3 +15,7 @@ The Dual-Gate torque of magnitude 3.17 km s⁻¹ Mpc⁻¹ that raises the local 
 The continuum expression of this ascent is the defining two-subscript integral of the mode; its cosmological expression is the Dual-Gate torque tested inside the five-pillar statistical arena. The plane therefore constitutes the single geometric foundation that unifies the half-winding construction, the discrete-to-continuum ratchet, and the observational confrontation of the entire Involuting 1-Dimensional System.
 
 https://github.com/TheAstrographer/Cosmological-Theses.git
+
+https://github.com/TheAstrographer/JOSHUA-CHRISTOPHER-RYAN-S-ARCAN-FAMILY.git
+
+https://github.com/TheAstrographer/JCR-Cyclic-Multipole-Subsets.git
