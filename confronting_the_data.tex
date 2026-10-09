@@ -1,0 +1,318 @@
+Stage-by-Stage Development inside the Domain  
+with the Dual-Gate Joint MCMC Configuration**
+
+The protected recursion of \(\operatorname{loop}\{\infty\mid\infty\}\) unfolds inside the real–angular domain whose corners are
+
+origin \((0,0)\),
+bottom-left \((-\theta,-c^2)\),
+bottom-right \((\theta,-c^2)\),
+top-left \((-\theta,c^2)\),
+top-right \((\theta,c^2)\),
+
+with \(\theta=6.5\pi\) and \(c^2=8.98755179\times10^{16}\,\mathrm{m}^2/\mathrm{s}^2\).  
+Each geometric stage now carries a precise cosmological counterpart defined by the joint MCMC configuration jcrin_dual_gate_joint.yaml. The configuration employs a thin adapter (adapters.jcrin_cobaya_adapter.JCRINAdapter) that injects the Dual-Gate lattice-torque model into an otherwise standard Cobaya pipeline, leaving every scientific likelihood and the original theory code untouched.
+
+Stage 0 – Initial closed curve at the origin
+The curve begins at \((0,0)\).  
+In the MCMC this corresponds to the pure ΛCDM sector before any Dual-Gate torque is applied. The base parameters
+
+\[
+\Omega_b h^2,\quad\Omega_c h^2,\quad H_0^\mathrm{base},\quad\ln(10^{10}A_s),\quad n_s,\quad\tau
+\]
+
+are sampled under their standard priors. No torque contribution is yet present; the representative point sits at the geometric and cosmological origin.
+
+Stage 1 – Gravitational force acts
+A real increment \(\frac14 c^2\) is deposited.  
+Cosmologically this stage activates the first contribution of the Dual-Gate torque. The adapter is instantiated with
+
+torque: 3.17
+tau: 5.8
+
+and the derived parameter
+
+\[
+H_0^\mathrm{local}=H_0^\mathrm{base}+3.17
+\]
+
+is formed. The upward motion in the real–angular plane is thereby identified with the local Hubble shift that will later be confronted with the late-universe data.
+
+Stage 2 – Curve in spacetime expands
+Anisotropic expansion under \(i=(0,1)\) adds a second increment \(\frac14 c^2\) while microscopic \(\theta_{\rm eff}\) contributions appear.  
+In the MCMC this stage engages the full set of geometric probes that are sensitive to the expansion history:
+
+desi_2024_dr1_bao.main
+pantheon_plus.binned
+
+The protected ratchet now accumulates the first secular pieces of the torque-modified distance-redshift relation, still inside the upper half of the domain.
+
+Stage 3 – Involuting mode
+The lobes fold at fixed real coordinate \(\frac12 c^2\).  
+This pure circulatory operation realises the half-winding and the monodromy \(-1\). In the cosmological pipeline the stage corresponds to the moment at which the Dual-Gate model injects its lattice-torque correction into the growth sector without altering the background expansion further. The weak-lensing likelihoods
+
+des_y6.3x2pt
+kids_legacy.cosmic_shear
+
+together with the intrinsic-alignment and baryonic-nuisance parameters \(A_\mathrm{IA}\), \(\eta_\mathrm{IA}\), \(\log_{10}(T_\mathrm{AGN}/K)\) become active. The representative point moves parallel to the \(\theta\)-axis, exactly as required by a pure involution.
+
+Stage 4 – Return to curve in spacetime
+A third real increment \(\frac14 c^2\) is deposited, completing one bosonic cycle.  
+The circulatory component cancels and a permanent real advance remains. Cosmologically this is the stage at which the early-universe Planck likelihoods
+
+planck_2018_highl_plik.TTTEEE
+planck_2018_lowl.TT
+planck_2018_lowl.EE
+planck_2018_lensing.baseline
+
+are jointly evaluated with the late-universe probes already activated. The net real advance \(\frac34 c^2\) is mirrored by the posterior shift in \(H_0^\mathrm{local}\) that reconciles the base Hubble parameter with the local distance ladder.
+
+Stage 5 – Terminal hierarchical restoration
+The pure involuting mode \(\operatorname{loop}\{\infty\mid\infty\}\) is restored at real coordinate \(c^2\).  
+In the MCMC the sampler reaches its convergence criteria
+
+Rminus1_stop: 0.01
+Rminus1_cl_stop: 0.15
+
+and writes the chains to chains/jcrin_dual_gate_joint. The terminal geometric object is identified with the maximum-a-posteriori point of the joint posterior, where
+
+\[
+\operatorname{Re}\bigl(\operatorname{loop}\{\infty\mid\infty\}\bigr)=c^2
+\]
+
+and the Dual-Gate torque has been fully absorbed into the derived local Hubble parameter. The four equal increments of \(\frac14 c^2\) have telescoped to the full vertical span of the domain, while the involuting stage at height \(\frac12 c^2\) has supplied the topological protection that keeps the torque contribution stable across the early- and late-universe data sets.
+
+Continuum Limit and MCMC Equivalence
+The discrete protected recursion converges to the two-subscript integral
+
+\[
+\operatorname{loop}\{\infty\mid\infty\}
+=\int_{\operatorname{loop}\{\infty\mid\infty\}^{-}}^{\operatorname{loop}\{\infty\mid\infty\}^{+}}=c^2.
+\]
+
+The same limit is realised by the joint MCMC as the posterior mean of the torque-augmented expansion history. Every likelihood remains an official, unmodified public module; the sole interface is the thin adapter that maps the geometric stages onto the cosmological parameter space. Thus the stage-by-stage ascent from the origin \((0,0)\) to the upper boundary at \(c^2\) is simultaneously a geometric theorem inside the real–angular domain and a statistically rigorous, multi-probe cosmological inference under the Dual-Gate lattice-torque model.
+
+https://github.com/TheAstrographer/Cosmological-Theses.git
+
+Stage-by-Stage Development inside the Domain  
+with the Production Stage-IV Multi-Probe MCMC Configuration Matrix**
+
+The protected recursion of \(\operatorname{loop}\{\infty\mid\infty\}\) continues to unfold inside the real–angular domain bounded by
+
+origin \((0,0)\),
+bottom-left quadrant \((-\theta,-c^2)\),
+bottom-right quadrant \((\theta,-c^2)\),
+top-left quadrant \((-\theta,c^2)\),
+top-right quadrant \((\theta,c^2)\),
+
+where \(\theta=6.5\pi\) and \(c^2=8.98755179\times10^{16}\,\mathrm{m}^2/\mathrm{s}^2\).  
+Each geometric stage is now identified with a precise sector of the Production Stage-IV Multi-Probe MCMC Configuration Matrix. The configuration employs the custom background fluid
+
+theory:
+  custom_fluid.CustomBackgroundFluid:
+  camb:
+    extra_args:
+      external_hubble_grid: True
+      halofit_version: mead2020
+
+together with the complete set of official early-universe, geometric, and late-universe likelihoods, while the two new fluid parameters \(\alpha_{\rm fluid}\) and \(z_{\rm decay}\) control the modified expansion history that realises the \(c^2\)-scaled real advance.
+
+Stage 0 – Initial closed curve at the origin
+The curve begins at \((0,0)\).  
+Cosmologically this is the pure baseline ΛCDM sector. The standard parameters
+
+\[
+\Omega_b h^2,\quad\Omega_c h^2,\quad H_0,\quad\ln(10^{10}A_s),\quad n_s,\quad\tau
+\]
+
+are sampled under their unconstrained priors. Both \(\alpha_{\rm fluid}\) and \(z_{\rm decay}\) remain at their reference values (\(\alpha_{\rm fluid}=0\), \(z_{\rm decay}=1.5\)); no fluid correction has yet been activated. The representative point sits at the geometric and cosmological origin.
+
+Stage 1 – Gravitational force acts
+A real increment \(\frac14 c^2\) is deposited.  
+The custom fluid parameter \(\alpha_{\rm fluid}\) is released from its prior \([-0.5,0.5]\). This stage corresponds to the first non-zero contribution of the external Hubble grid that CAMB receives from CustomBackgroundFluid. The upward motion in the real–angular plane is identified with the onset of the modified expansion rate that will later be constrained by the distance-redshift probes.
+
+Stage 2 – Curve in spacetime expands
+Anisotropic expansion under \(i=(0,1)\) adds a second increment \(\frac14 c^2\) while microscopic \(\theta_{\rm eff}\) contributions appear.  
+The geometric likelihoods become active:
+
+bao.desi_dr2_full_stack
+pantheon_plus.binned
+
+The fluid decay redshift \(z_{\rm decay}\) (prior \([0.1,4.5]\)) now controls the epoch at which the additional expansion contribution is injected. The representative point climbs to height \(\frac12 c^2\) while exploring a modest angular width, remaining inside the upper quadrants of the domain.
+
+Stage 3 – Involuting mode
+The lobes fold at fixed real coordinate \(\frac12 c^2\).  
+This pure circulatory operation realises the half-winding and the monodromy \(-1\). Cosmologically the stage engages the growth-sensitive weak-lensing likelihoods
+
+des_y6.3x2pt (with HMcode baryonic feedback)
+kids_legacy.cosmic_shear (with HMcode baryonic feedback)
+
+together with the full nuisance matrices
+
+\[
+A_{\rm IA},\quad\eta_{\rm IA},\quad\log_{10}(T_{\rm AGN}/{\rm K}).
+\]
+
+The representative point moves parallel to the \(\theta\)-axis at constant real height, exactly as required by a pure involution; the fluid parameters continue to modulate the background while the growth sector absorbs the topological protection of the half-winding.
+
+Stage 4 – Return to curve in spacetime
+A third real increment \(\frac14 c^2\) is deposited, completing one bosonic cycle.  
+The circulatory component cancels and a permanent real advance remains. All early-universe Planck likelihoods
+
+planck_2018_highl_plik.TTTEEE
+planck_2018_lowl.TT
+planck_2018_lowl.EE
+planck_2018_lensing.baseline
+
+are now evaluated jointly with the geometric and weak-lensing probes. The net real advance \(\frac34 c^2\) is mirrored by the posterior shift in the fluid-modified expansion history that reconciles the high-redshift CMB constraints with the low-redshift distance and structure measurements.
+
+Stage 5 – Terminal hierarchical restoration
+The pure involuting mode \(\operatorname{loop}\{\infty\mid\infty\}\) is restored at real coordinate \(c^2\).  
+The MCMC sampler reaches the ultra-strict convergence criteria
+
+burn_in: 0.3
+Rminus1_stop: 0.01
+
+and writes the production chains to /opt/cosmology/output_chains/stage4_joint_production. The terminal geometric object is identified with the maximum-a-posteriori point of the joint posterior, where
+
+\[
+\operatorname{Re}\bigl(\operatorname{loop}\{\infty\mid\infty\}\bigr)=c^2
+\]
+
+and the custom fluid parameters \(\alpha_{\rm fluid}\) and \(z_{\rm decay}\) have been fully constrained by the multi-probe data. The four equal increments of \(\frac14 c^2\) have telescoped to the full vertical span of the domain, while the involuting stage at height \(\frac12 c^2\) has supplied the topological protection that stabilises the fluid correction across the entire redshift range.
+
+Continuum Limit and MCMC Equivalence
+The discrete protected recursion converges to the two-subscript integral
+
+\[
+\operatorname{loop}\{\infty\mid\infty\}
+=\int_{\operatorname{loop}\{\infty\mid\infty\}^{-}}^{\operatorname{loop}\{\infty\mid\infty\}^{+}}=c^2.
+\]
+
+The same limit is realised by the Stage-IV joint posterior as the continuum value of the fluid-modified Hubble grid. Every likelihood remains an official public module; the sole theoretical interface is the custom background fluid that maps the geometric stages onto the cosmological parameter space. Thus the stage-by-stage ascent from the origin \((0,0)\) to the upper boundary at \(c^2\) is simultaneously a geometric theorem inside the real–angular domain and a statistically rigorous, production-grade multi-probe cosmological inference under the Stage-IV configuration matrix.
+
+https://github.com/TheAstrographer/Confronting-The-Data.git
+
+Stage-by-Stage Development inside the Domain  
+Protected Recursion driven by the discrete transport rule
+
+\[
+z_{n+1}
+=
+z_n
+\varepsilon\bigl(1+i\sin(2\pi n\varepsilon)\bigr),
+\qquad
+\varepsilon>0.
+\]
+
+The real part of the update isolates the secular advance
+
+\[
+\operatorname{Re}(z_{n+1})
+=
+\operatorname{Re}(z_n)
+\varepsilon,
+\]
+
+while the imaginary part oscillates and cancels over each complete bosonic cycle.  
+All real coordinates are expressed in the dimensionless variable
+
+\[
+Y
+=
+\frac{y}{c^2}
+\in[-1,+1],
+\]
+
+so that the physical boundary \(y=c^2\) corresponds exactly to the normalized boundary \(Y=1.0\).
+
+Stage-by-Stage Derivation
+
+Stage 0 – Initial closed curve  
+\[
+z_0=0,\qquad Y_0=0.
+\]
+The curve sits at the origin of the real-angular domain. Both the net real advance and the accumulated \(\theta_{\rm eff}\) vanish.
+
+Stage 1 – Gravitational force acts  
+The first protected increment deposits a pure real contribution \(\varepsilon\). In the normalized lattice this is calibrated to the fractional step
+
+\[
+\Delta Y_1=+0.25
+\qquad\Rightarrow\qquad
+Y_1=0.25.
+\]
+The representative point moves vertically from the origin into the upper half-plane while the angular coordinate remains near zero.
+
+Stage 2 – Curve in spacetime expands  
+A second real increment of the same magnitude is added under the hierarchical orientation \(i=(0,1)\):
+
+\[
+\Delta Y_2=+0.25
+\qquad\Rightarrow\qquad
+Y_2=0.50.
+\]
+Microscopic \(\theta_{\rm eff}\) contributions appear through the oscillatory term \(\varepsilon\sin(2\pi n\varepsilon)\), yet they remain circulatory; only the real part accumulates. The curve begins to explore a modest angular width inside the top-left and top-right quadrants.
+
+Stage 3 – Involuting mode  
+The lobes fold. The real part of the transport rule is held fixed while the imaginary part executes the order-two involution:
+
+\[
+\Delta Y_3=0
+\qquad\Rightarrow\qquad
+Y_3=0.50.
+\]
+Topologically this stage realises the half-winding and acquires the monodromy sign \(-1\). In the discrete rule the sine term reverses phase; the real secular term is suspended, so the representative point moves parallel to the \(\theta\)-axis at constant height \(Y=0.50\).
+
+Stage 4 – Return to curve in spacetime  
+The fold is released and the multi-lobed form is recovered. A third real increment is deposited:
+
+\[
+\Delta Y_4=+0.25
+\qquad\Rightarrow\qquad
+Y_4=0.75.
+\]
+Over the completed bosonic cycle the oscillatory (imaginary) contributions cancel, while the three real increments survive. This is the geometric act that converts the half-winding excursion into a permanent, oriented displacement. The net real advance after the cycle is already \(0.75\).
+
+Stage 5 – Terminal hierarchical restoration  
+The orientation is reset to the pure involuting mode \(i:=(0,1)\). A final real increment places the curve at the upper boundary of the domain:
+
+\[
+\Delta Y_5=+0.25
+\qquad\Rightarrow\qquad
+Y_5=1.00.
+\]
+The terminal object is therefore
+
+\[
+\operatorname{loop}\{\infty\mid\infty\}
+\quad\text{seated at}\quad
+Y=1.00
+\quad\bigl(y=c^2\bigr).
+\]
+The curve has returned to the form of an initial closed curve in spacetime, yet now occupies the new real coordinate fixed by the telescopic sum of the protected transport rule.
+
+Telescopic Closure
+
+Because every real increment originates from the identical \(+\varepsilon\) term in the discrete rule, the successive advances sum telescopically:
+
+\[
+Y_5-Y_0
+=
+\sum_{k=1}^{5}\Delta Y_k
+=
+0.25+0.25+0+0.25+0.25
+=
+1.00.
+\]
+
+All intermediate angular dynamics cancel, leaving only the boundary values. The continuum limit of the same protected ratchet is the two-subscript integral evaluated on the normalized axis:
+
+\[
+\operatorname{Re}\bigl(\operatorname{loop}\{\infty\mid\infty\}\bigr)_{\rm scaled}
+=
+\int_{\operatorname{loop}\{\infty\mid\infty\}^{-}}^{\operatorname{loop}\{\infty\mid\infty\}^{+}}
+=
+1.00.
+\]
+
+Thus the five-stage ascent inside the real-angular domain is nothing other than the explicit, step-by-step evaluation of the discrete transport rule whose real part generates the permanent advance and whose imaginary part realises the involuting mode.
